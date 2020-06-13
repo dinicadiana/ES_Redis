@@ -69,7 +69,6 @@ class Worker:
 	def moreWork(self):
 
 		while True:
-			print("MORE WORK")
 			now = int(time.time())
 			#update score
 			if now - self.score > self.T:
@@ -90,7 +89,6 @@ class Worker:
 	def calcFibonacci(self):
 
 		myLock = r.setnx("lock", 1)
-		print("AICI")
 		if myLock == 1:
 			fib = r.get('fib0') + r.get('fib1')
 			r.set('fib0', r.get('fib1'))
